@@ -1,0 +1,24 @@
+// Enabling shadows and gradients
+//$enable-shadows: true;
+//$enable-gradients: true;
+// $enable-grid-classes: false;
+
+// Changing the body background and text
+//$body-bg: #d3e9eb;
+//$body-color: #151417;
+
+// Changing the border radius of buttons
+//$border-radius: 15px;
+
+$enable-grid-classes: false;
+
+$theme: (
+  primary: #4CB6F2,
+  secondary: #FDCA40,
+  success: #D6E681,
+  info: #DF2935,
+  light: #E6E8E6,
+  dark: #333333,
+  primary-light: #81BFE2,
+  primary-dark: #216B96,
+);
