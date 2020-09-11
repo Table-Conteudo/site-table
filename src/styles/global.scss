@@ -1,0 +1,157 @@
+@import "utilities";
+@import "custom-styles"; // necessary?
+@import "custom-typography";
+// @import "hero";
+
+// Optional
+@import "node_modules/bootstrap/scss/reboot";
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  color: map-get($theme, dark);
+  background-color: #EFEFEF;
+  overflow-x: hidden;
+}
+
+.heroDesktop {
+
+  @include media-breakpoint-down(md) {
+  
+    display: none;
+  }
+}
+
+.heroMobile {
+  display: none;
+
+  @include media-breakpoint-down(md) {
+    display: block;
+  }
+}
+
+.noScroll {
+  overflow: hidden;
+}
+
+.mainContainer {
+  background-color: map-get($theme, primary-light);
+  min-height: 100vh;
+  position: relative;
+
+  @include make-row($gutter: 1rem);
+
+  .content {
+    position: relative;
+    z-index: 10;
+
+    @include make-col(5, $columns: $grid-columns);
+
+    @include media-breakpoint-down(md) {
+      @include make-col(12);
+    }
+  }
+
+  .comparative {
+    position: relative;
+    z-index: 10;
+
+    @include make-col(12, $columns: $grid-columns);
+
+    @include media-breakpoint-down(md) {
+      @include make-col(12);
+    }
+
+    .half {
+      @include make-row($gutter: 1rem);
+
+      h3 {
+        text-align: center;
+        color: map-get($theme, primary-dark);
+        margin: 0 auto 3rem auto;
+        width: 100%;
+      }
+
+      .col {
+        @include make-col(6, $columns: $grid-columns);
+
+        @include media-breakpoint-down(md) {
+          @include make-col(12);
+        }
+      }
+    }
+
+    .third {
+      @include make-row($gutter: 1rem);
+
+      h3 {
+        text-align: center;
+        color: map-get($theme, primary-dark);
+        margin: 0 auto 0.75rem auto;
+        width: 100%;
+      }
+
+      .col {
+        @include make-col(4, $columns: $grid-columns);
+
+        @include media-breakpoint-down(md) {
+          @include make-col(12);
+        }
+      }
+    }
+  }
+
+  .map {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 100%;
+  }
+}
+
+footer {
+  width: 100%;
+  height: 70vh;
+  background-color: map-get($theme, dark);
+  margin-top: 20rem;
+}
+
+.quote {
+  font-weight: 600;
+
+  &:before {
+    content: "“";
+  }
+
+  &:after {
+    content: "”";
+  }
+}
+
+.quote-source {
+  color: map-get($theme, primary-dark);
+
+  &:before {
+    content: "—";
+  }
+}
+
+.quote-sub {
+  display: flex;
+  width: 100%;
+  align-items: center;
+
+  h5 {
+    text-align: center;
+    background-color: map-get($theme, primary-dark);
+    margin: 0 auto 3rem auto;
+    text-transform: uppercase;
+    font-weight: 700;
+    padding: 0.25rem 1rem;
+    color: map-get($theme, primary-light);
+    display: inline;
+  }
+}
