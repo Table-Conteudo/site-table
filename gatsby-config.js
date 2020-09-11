@@ -12,8 +12,8 @@ module.exports = {
     },
   },
   plugins: [
-    `gatsby-plugin-netlify-cms`,
-    `gatsby-plugin-sass`,
+    { resolve: `gatsby-plugin-netlify-cms` },
+    { resolve: `gatsby-plugin-sass` },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -82,15 +82,15 @@ module.exports = {
         ],
       },
     },
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
+    { resolve: `gatsby-transformer-sharp` },
+    { resolve: `gatsby-plugin-sharp` },
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
         //trackingId: `ADD YOUR TRACKING ID HERE`,
       },
     },
-    `gatsby-plugin-feed`,
+    { resolve: `gatsby-plugin-feed` },
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -103,7 +103,7 @@ module.exports = {
         icon: `content/assets/gatsby-icon.png`,
       },
     },
-    `gatsby-plugin-react-helmet`,
+    { resolve: `gatsby-plugin-react-helmet` },
     {
       resolve: `gatsby-plugin-typography`,
       options: {
