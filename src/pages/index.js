@@ -2,9 +2,8 @@ import React from "react"
 import { Link, graphql } from "gatsby"
 
 import Bio from "../components/bio"
-import Layout from "../components/layout"
+import Layout from "../templates/layout"
 import SEO from "../components/seo"
-import { rhythm } from "../utils/typography"
 import Hero from "../components/hero"
 import Hero2 from "../components/hero2"
 
@@ -13,10 +12,9 @@ const BlogIndex = ({ data, location }) => {
   const posts = data.allMarkdownRemark.edges
 
   return (
-    <main>
+    <Layout>
       <Hero2 />
-      <Bio />
-    </main>
+    </Layout>
     // <Layout location={location} title={siteTitle}>
     //   <SEO title="All posts" />
     //   <Bio />

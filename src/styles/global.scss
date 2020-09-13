@@ -1,5 +1,4 @@
 @import "utilities";
-@import "custom-styles"; // necessary?
 @import "custom-typography";
 // @import "hero";
 
@@ -34,6 +33,24 @@ body {
 
 .noScroll {
   overflow: hidden;
+}
+
+#logo {
+  max-width: 140px;
+
+  #logoName, #logoSub {
+    opacity: 0;
+    transform: translate(-40px);
+    transition: opacity 0.3s, transform 0.8s;
+  }
+
+  &:hover {
+    #logoName, #logoSub {
+      opacity: 1;
+      transform: translate(0);
+    }
+  }
+  
 }
 
 .mainContainer {

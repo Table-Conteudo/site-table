@@ -29,21 +29,29 @@ module.exports = {
       },
     },
     {
+      resolve: "gatsby-plugin-react-svg",
+      options: {
+        rule: {
+          include: [/\.inline\.svg$/]
+        },
+      },
+    },
+    {
       resolve: `gatsby-plugin-webfonts`,
       options: {
         fonts: {
           google: [
             {
-              family: "Big+Shoulders+Text",
+              family: "Montserrat",
               variants: ["400,500,700"],
             },
             {
-              family: "Space+Mono",
-              variants: ["400,400i,500,500i,700,700i"],
+              family: "Inter",
+              variants: ["300,400,400i,500,500i,700"],
             },
             {
-              family: "Literata",
-              variants: ["400,400i,700,700i"],
+              family: "Lekton",
+              variants: ["400,700"],
             },
           ],
         },
@@ -96,13 +104,7 @@ module.exports = {
         icon: `content/assets/gatsby-icon.png`,
       },
     },
-    { resolve: `gatsby-plugin-react-helmet` },
-    {
-      resolve: `gatsby-plugin-typography`,
-      options: {
-        pathToConfigModule: `src/utils/typography`,
-      },
-    },
+    { resolve: `gatsby-plugin-react-helmet` }
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
