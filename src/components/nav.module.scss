@@ -29,6 +29,10 @@
         list-style: none;
         margin-bottom: 0;
 
+        @include media-breakpoint-down(sm) {
+          display: none;
+        }
+
         li {
           font-family: "Inter", sans-serif;
           font-size: 1rem;
