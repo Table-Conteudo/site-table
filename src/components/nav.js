@@ -11,20 +11,20 @@ function Nav() {
   const { scrollY } = useViewportScroll()
   const bgY = useTransform(
     scrollY,
-    [0, 800, 960],
+    [0, 500, 600],
     [
-      "rgba(129, 191, 226, 0)",
-      "rgba(129, 191, 226, 0)",
-      "rgba(129, 191, 226, 1)",
+      "rgba(239, 239, 239, 0)",
+      "rgba(239, 239, 239, 0)",
+      "rgba(239, 239, 239, 1)",
     ]
   )
   const borderY = useTransform(
     scrollY,
-    [0, 800, 960],
+    [0, 500, 600],
     [
-      "3px solid rgba(253, 202, 64, 0)",
-      "3px solid rgba(253, 202, 64, 0)",
-      "3px solid rgba(253, 202, 64, 1)",
+      "2px solid rgba(249, 191, 58, 0)",
+      "2px solid rgba(249, 191, 58, 0)",
+      "2px solid rgba(249, 191, 58, 1)",
     ]
   )
   const [navbarOpen, setNavbarOpen] = useState(false)
@@ -47,16 +47,16 @@ function Nav() {
           </Link>
           <ul>
             <li>
-              <Link>Por que mesa?</Link>
+              <Link to="/">Por que mesa?</Link>
             </li>
             <li>
-              <Link>Cases</Link>
+              <Link to="/">Cases</Link>
             </li>
             <li>
-              <Link>Table Edu</Link>
+              <Link to="/">Table Edu</Link>
             </li>
             <li>
-              <Link>Contato</Link>
+              <Link to="/">Contato</Link>
             </li>
           </ul>
           <button onClick={toggle} className={navStyles.responsiveBtn}>

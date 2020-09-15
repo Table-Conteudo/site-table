@@ -32,7 +32,7 @@ module.exports = {
       resolve: "gatsby-plugin-react-svg",
       options: {
         rule: {
-          include: [/\.inline\.svg$/]
+          include: [/\.inline\.svg$/, /\.background\.svg$/]
         },
       },
     },
@@ -42,7 +42,7 @@ module.exports = {
         fonts: {
           google: [
             {
-              family: "Montserrat",
+              family: "Lato",
               variants: ["400,500,700"],
             },
             {

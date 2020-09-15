@@ -1,5 +1,6 @@
 @import "utilities";
 @import "custom-typography";
+@import "tabs";
 // @import "hero";
 
 // Optional
@@ -16,7 +17,6 @@ body {
 }
 
 .heroDesktop {
-
   @include media-breakpoint-down(md) {
   
     display: none;
