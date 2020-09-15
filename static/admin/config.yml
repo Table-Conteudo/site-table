@@ -17,16 +17,16 @@ collections:
     editor:
       preview: false
     fields:
-      - { label: 'Title', name: 'title', widget: 'string' }
-      - { label: 'Publish Date', name: 'date', widget: 'datetime' }
-      - { label: 'Description', name: 'description', widget: 'string' }
-      - { label: 'Body', name: 'body', widget: 'markdown' }
-  - name: 'settings'
-    label: 'Configurações'
+      - { label: 'Título', name: 'title', widget: 'string' }
+      - { label: 'Data de Publicação', name: 'date', widget: 'datetime' }
+      - { label: 'Descrição', name: 'description', widget: 'string' }
+      - { label: 'Corpo', name: 'body', widget: 'markdown' }
+  - name: 'home'
+    label: 'Página Inicial'
     files:
-      - label: 'Contato'
-        name: contact_info
-        file: site/settings/contact_info.yml
+      - label: 'Abas de Conteúdo'
+        name: content_tabs
+        file: site/copy/content_tabs.yml
         fields:
-          - { label: 'Telefone', name: 'phone', widget: 'string' }
-          - { label: 'Email', name: 'email', widget: 'string' }
+          - { label: 'Título', name: 'title', widget: 'string' }
+          - { label: 'Aba 1', name: 'tab1', widget: 'string' }

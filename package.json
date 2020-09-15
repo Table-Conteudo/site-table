@@ -45,6 +45,8 @@
     "react-router-dom": "^5.2.0",
     "react-svg": "^11.0.39",
     "react-typography": "^0.16.19",
+    "resize-observer-polyfill": "^1.5.1",
+    "styled-components": "^5.2.0",
     "three": "^0.120.1",
     "typeface-merriweather": "0.0.72",
     "typeface-montserrat": "0.0.75",
