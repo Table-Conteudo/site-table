@@ -1,56 +1,65 @@
 @import "../styles/utilities";
 
-.box {
-  background-color: #ffffff;
+.boxWrapper {
   width: 100%;
+  padding: 0 16rem;
 
-  @include make-row($gutter: 1rem);
-
-  .image {
-    background-color: map-get($theme, medium);
-    @include make-col(6, $columns: $grid-columns);
-
-    @include media-breakpoint-down(md) {
-      @include make-col(12);
-    }
+  @include media-breakpoint-down(md) {
+    padding: 0;
   }
 
-  .body {
-    padding: 2rem;
+  .box {
+    background-color: #ffffff;
+    width: 100%;
 
-    @include make-col(6, $columns: $grid-columns);
+    @include make-row($gutter: 1rem);
 
-    @include media-breakpoint-down(md) {
-      @include make-col(12);
+    .image {
+      background-color: map-get($theme, medium);
+      @include make-col(6, $columns: $grid-columns);
 
-      padding: 1rem;
-    }
-
-    h2 {
-      font-weight: 300;
-
-      span {
-        color: map-get($theme, primary);
+      @include media-breakpoint-down(md) {
+        @include make-col(12);
       }
     }
 
-    .footer {
-      margin-top: 3rem;
+    .body {
+      padding: 2rem;
 
-      .cases {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
+      @include make-col(6, $columns: $grid-columns);
 
-        h6 {
-          text-transform: lowercase;
-          margin-bottom: 0;
+      @include media-breakpoint-down(md) {
+        @include make-col(12);
+
+        padding: 1rem 2rem;
+      }
+
+      h2 {
+        font-weight: 300;
+
+        span {
+          color: map-get($theme, primary);
         }
+      }
 
-        .line {
-          width: 55%;
-          height: 2px;
-          background-color: map-get($theme, primary);;
+      .footer {
+        margin-top: 3rem;
+
+        .cases {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+
+          h6 {
+            text-transform: lowercase;
+            margin-bottom: 0;
+          }
+
+          .line {
+            width: 55%;
+            height: 2px;
+            background-color: map-get($theme, primary);
+          }
         }
       }
     }

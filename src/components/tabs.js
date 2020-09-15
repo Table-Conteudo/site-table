@@ -1,105 +1,139 @@
-import React from "react"
-import PropTypes from "prop-types"
-import {
-  Switch,
-  Route,
-  Redirect,
-  matchPath,
-  useLocation,
-} from "react-router-dom"
-import { AnimatePresence, motion } from "framer-motion"
-import Tab from "./tab"
-import Underline from "./underline"
+import React, { useRef, useState } from "react"
+import { useMeasure } from "../utils/use-measure"
+import styled from "styled-components"
+import { motion } from "framer-motion"
+import { Pager } from "./pager"
+import ContentBox from "./content-box"
 
-const Tabs = ({ items }) => {
-  const [animating, setAnimating] = React.useState(false)
+const TabItem = styled(motion.button)`
+  white-space: nowrap;
+  -webkit-appearance: none;
+  box-sizing: border-box;
+  text-align: center;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  user-select: none;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+  cursor: pointer;
+  text-decoration: none;
+  border-width: initial;
+  border-style: none;
+  border-color: initial;
+  border-image: initial;
+  padding: 0.25rem 0.5rem;
+  font-family: "Lekton", sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  -webkit-font-smoothing: antialiased;
+  text-size-adjust: none;
+  text-overflow: ellipsis;
+  line-height: 1.5;
+  border: 2px solid ${p => (p.isActive ? "rgb(249, 191, 58)" : "rgb(196, 196, 196)")};
+  margin-right: 1rem;
+  overflow: hidden;
+`
 
-  const tabRefs = items.reduce((acc, item) => {
-    acc[item.route] = React.createRef()
-    return acc
-  }, {})
+const Slider = styled(motion.div)`
+  height: 4px;
+  width: 4px;
+  bottom: 6px;
+  margin-left: 2px;
+  position: absolute;
+  background: rgba(249, 191, 58, 1);
+`;
 
-  const location = useLocation()
+const tabs = ["Redes Sociais", "Motion", "Vídeo", "Filtro", "Fotografia", "Site/Banner", "E-mail MKT", "E-books/Infográficos"]
 
-  // Find active path
-  const active = items.find(item =>
-    matchPath(location.pathname, {
-      path: `/${item.route}`,
-      exact: true,
-    })
-  )
+function Tabs() {
+  const [value, setValue] = useState(1)
+  const childRefs = useRef(new Map())
+  const tabListRef = useRef()
+  const [slider, setSlider] = useState({ left: 0, right: 0 })
+  const { bounds, ref } = useMeasure()
 
-  const activeRoute = active && active.route
+  // measure our elements
+  React.useEffect(() => {
+    const target = childRefs.current.get(value)
+    const container = tabListRef.current
+    if (target) {
+      const cRect = container.getBoundingClientRect()
+
+      // when container is `display: none`, width === 0.
+      // ignore this case
+      if (cRect.width === 0) {
+        return
+      }
+
+      const tRect = target.getBoundingClientRect()
+      const left = tRect.left - cRect.left
+      const right = cRect.right - tRect.right
+
+      setSlider({
+        hasValue: true,
+        left: left + 8,
+        right: right + 8,
+      })
+    }
+  }, [value, bounds])
 
   return (
-      <React.Fragment>
-        <div className="tabs">
-          <ul role="tablist" aria-orientation="horizontal" className="list">
-            {items.map(item => (
-              <Tab
-                key={item.route}
-                location={location}
-                item={item}
-                ref={tabRefs[item.route]}
-                active={activeRoute === item.route}
-                animating={animating}
-                startAnimating={() => setAnimating(true)}
-              />
-            ))}
-          </ul>
-          <Underline
-            refs={tabRefs}
-            activeRoute={activeRoute}
-            finishAnimating={() => setAnimating(false)}
-            animating={animating}
+    <div>
+      <div className="tabs" ref={ref}>
+        <div className="list" ref={tabListRef}>
+          {tabs.map((tab, i) => (
+            <TabItem
+              key={tab}
+              isActive={i === value}
+              whileHover={{ backgroundColor: "rgba(249, 191, 58, 1)" }}
+              transition={{ duration: 0.3 }}
+              whileTap={{ backgroundColor: "rgba(249, 191, 58, 1)" }}
+              ref={el => childRefs.current.set(i, el)}
+              onClick={() => setValue(i)}
+            >
+              {tab}
+            </TabItem>
+          ))}
+          {slider.hasValue && (
+            <Slider id="slider"
+              positionTransition={{
+                bounceDamping: 3,
+              }}
+              initial={false}
+              style={{
+                left: slider.left,
+                right: slider.right,
+              }}
+            />
+          )}
+        </div>
+      </div>
+      <Pager value={value}>
+        <div
+          key="{tab}"
+        >
+          <ContentBox
+            title="Feed"
+            content="Ideal overcome free burying grandeur aversion. Dead morality
+                self right superiority passion virtues hope society play of
+                snare grandeur. Good oneself burying law good ultimate burying.
+                Play justice snare holiest noble sea reason marvelous right."
           />
         </div>
-        <AnimatePresence exitBeforeEnter>
-          <Switch location={location} key={location.pathname}>
-            {items.map(item => (
-              <Route
-                key={item.route}
-                path={`/${item.route}`}
-                render={() => (
-                  <motion.div
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                  >
-                    {item.render()}
-                  </motion.div>
-                )}
-              />
-            ))}
-            {/*
-                Need to wrap the redirect in a motion component with an "exit" defined
-                https://www.framer.com/api/motion/animate-presence/#animating-custom-components
-              */}
-            <Route
-              key="redirection"
-              render={() => (
-                <motion.div exit={{ opacity: 0 }}>
-                  <Redirect to={items[0] ? `/${items[0].route}` : "/"} />
-                </motion.div>
-              )}
-            />
-          </Switch>
-        </AnimatePresence>
-      </React.Fragment>
+        <div
+          key="{tab}"
+        >
+          <ContentBox
+            title="Feed"
+            content="Ideal overcome free burying grandeur aversion. Dead morality
+                self right superiority passion virtues hope society play of
+                snare grandeur. Good oneself burying law good ultimate burying.
+                Play justice snare holiest noble sea reason marvelous right."
+          />
+        </div>
+      </Pager>
+    </div>
   )
-}
-
-Tabs.defaultProps = {
-  items: [],
-}
-
-Tabs.propTypes = {
-  items: PropTypes.arrayOf(
-    PropTypes.shape({
-      name: PropTypes.string,
-      route: PropTypes.route,
-    })
-  ),
 }
 
 export default Tabs
