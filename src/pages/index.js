@@ -14,7 +14,7 @@ const Index = ({ data, location }) => {
 
   return (
     <Layout location={location}>
-      <Hero2 />
+      {/* <Hero2 /> */}
       <ContentTypes />
     </Layout>
     // <Layout location={location} title={siteTitle}>
