@@ -6,7 +6,7 @@ function Hero2() {
       style={{
         display: "flex",
         alignContent: "center",
-        margin: "3rem auto",
+        margin: "0 auto",
         justifyContent: "space-around",
       }}
     >

@@ -2,21 +2,21 @@ import React from "react"
 import { Link, graphql } from "gatsby"
 
 import Bio from "../components/bio"
-import Layout from "../components/layout"
+import Layout from "../templates/layout"
 import SEO from "../components/seo"
-import { rhythm } from "../utils/typography"
 import Hero from "../components/hero"
 import Hero2 from "../components/hero2"
+import ContentTypes from "../components/content-types"
 
-const BlogIndex = ({ data, location }) => {
-  const siteTitle = data.site.siteMetadata.title
-  const posts = data.allMarkdownRemark.edges
+const Index = ({ data, location }) => {
+  // const siteTitle = data.site.siteMetadata.title
+  // const posts = data.allMarkdownRemark.edges
 
   return (
-    <main>
+    <Layout location={location}>
       <Hero2 />
-      <Bio />
-    </main>
+      <ContentTypes />
+    </Layout>
     // <Layout location={location} title={siteTitle}>
     //   <SEO title="All posts" />
     //   <Bio />
@@ -50,7 +50,7 @@ const BlogIndex = ({ data, location }) => {
   )
 }
 
-export default BlogIndex
+export default Index
 
 export const pageQuery = graphql`
   query {
