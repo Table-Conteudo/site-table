@@ -9,7 +9,7 @@
 
   .title {
     padding-left: 10%;
-    @include make-col(6, $columns: $grid-columns);
+    @include make-col(7, $columns: $grid-columns);
 
     @include media-breakpoint-down(md) {
       padding-left: 0;

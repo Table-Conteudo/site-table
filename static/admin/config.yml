@@ -29,4 +29,9 @@ collections:
         file: site/copy/content_tabs.yml
         fields:
           - { label: 'Título', name: 'title', widget: 'string' }
-          - { label: 'Aba 1', name: 'tab1', widget: 'string' }
+          - label: "Aba 1"
+            name: "tab1"
+            widget: "object"
+            fields:
+              - {label: 'Título', name: 'title', widget: 'string'} 
+              - {label: 'Texto', name: 'text', widget: 'string'} 
