@@ -2,7 +2,6 @@ import React from "react"
 import contentBoxStyles from "./content-box.module.scss"
 import { StaticQuery, graphql } from "gatsby" // to query for image data
 import Img from "gatsby-image" // to take image data and render it
-import ContentTabs from "../../site/copy/content_tabs.yml"
 
 const Image = props => (
   <StaticQuery

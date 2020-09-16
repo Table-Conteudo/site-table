@@ -1,7 +1,7 @@
 import React from "react"
 import Tabs from "./tabs"
 // import ContentBox from "./content-box"
-import ContentTabs from "../../site/copy/content_tabs.yml"
+import ContentTabs from "../../content/copy/content_tabs.yml"
 
 const ContentTypes = () => (
   <div className="contentTypes">

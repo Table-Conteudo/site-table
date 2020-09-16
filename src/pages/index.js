@@ -7,46 +7,25 @@ import SEO from "../components/seo"
 import Hero from "../components/hero"
 import Hero2 from "../components/hero2"
 import ContentTypes from "../components/content-types"
+import CasePreview from "../components/case-preview"
 
-const Index = ({ data, location }) => {
+const Index = ({
+  data: {
+    allMarkdownRemark: { edges },
+  },
+  location,
+}) => {
   // const siteTitle = data.site.siteMetadata.title
-  // const posts = data.allMarkdownRemark.edges
+  const Cases = edges
+    .filter(edge => !!edge.node.frontmatter.date) // You can filter your posts based on some criteria
+    .map(edge => <CasePreview key={edge.node.id} post={edge.node} />)
 
   return (
     <Layout location={location}>
       <Hero2 />
       <ContentTypes />
+      <div>{Cases}</div>
     </Layout>
-    // <Layout location={location} title={siteTitle}>
-    //   <SEO title="All posts" />
-    //   <Bio />
-    //   {posts.map(({ node }) => {
-    //     const title = node.frontmatter.title || node.fields.slug
-    //     return (
-    //       <article key={node.fields.slug}>
-    //         <header>
-    //           <h3
-    //             style={{
-    //               marginBottom: rhythm(1 / 4),
-    //             }}
-    //           >
-    //             <Link style={{ boxShadow: `none` }} to={node.fields.slug}>
-    //               {title}
-    //             </Link>
-    //           </h3>
-    //           <small>{node.frontmatter.date}</small>
-    //         </header>
-    //         <section>
-    //           <p
-    //             dangerouslySetInnerHTML={{
-    //               __html: node.frontmatter.description || node.excerpt,
-    //             }}
-    //           />
-    //         </section>
-    //       </article>
-    //     )
-    //   })}
-    // </Layout>
   )
 }
 
@@ -54,22 +33,15 @@ export default Index
 
 export const pageQuery = graphql`
   query {
-    site {
-      siteMetadata {
-        title
-      }
-    }
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+    allMarkdownRemark(sort: { order: DESC, fields: [frontmatter___date] }) {
       edges {
         node {
-          excerpt
-          fields {
-            slug
-          }
+          id
+          excerpt(pruneLength: 250)
           frontmatter {
             date(formatString: "MMMM DD, YYYY")
+            slug
             title
-            description
           }
         }
       }

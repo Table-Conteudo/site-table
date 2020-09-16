@@ -4,7 +4,7 @@ import styled from "styled-components"
 import { motion } from "framer-motion"
 import { Pager } from "./pager"
 import ContentBox from "./content-box"
-import ContentTabs from "../../site/copy/content_tabs.yml"
+import ContentTabs from "../../content/copy/content_tabs.yml"
 
 const TabItem = styled(motion.button)`
   white-space: nowrap;
