@@ -50,3 +50,38 @@ collections:
               - {label: 'Título', name: 'title', widget: 'string'} 
               - {label: 'Texto', name: 'text', widget: 'string'}
               - {label: 'Imagem', name: 'img', widget: 'image'}
+          - label: "Aba 4"
+            name: "tab4"
+            widget: "object"
+            fields:
+              - {label: 'Título', name: 'title', widget: 'string'} 
+              - {label: 'Texto', name: 'text', widget: 'string'}
+              - {label: 'Imagem', name: 'img', widget: 'image'}
+          - label: "Aba 5"
+            name: "tab5"
+            widget: "object"
+            fields:
+              - {label: 'Título', name: 'title', widget: 'string'} 
+              - {label: 'Texto', name: 'text', widget: 'string'}
+              - {label: 'Imagem', name: 'img', widget: 'image'}
+          - label: "Aba 6"
+            name: "tab6"
+            widget: "object"
+            fields:
+              - {label: 'Título', name: 'title', widget: 'string'} 
+              - {label: 'Texto', name: 'text', widget: 'string'}
+              - {label: 'Imagem', name: 'img', widget: 'image'}
+          - label: "Aba 7"
+            name: "tab7"
+            widget: "object"
+            fields:
+              - {label: 'Título', name: 'title', widget: 'string'} 
+              - {label: 'Texto', name: 'text', widget: 'string'}
+              - {label: 'Imagem', name: 'img', widget: 'image'}
+          - label: "Aba 8"
+            name: "tab8"
+            widget: "object"
+            fields:
+              - {label: 'Título', name: 'title', widget: 'string'} 
+              - {label: 'Texto', name: 'text', widget: 'string'}
+              - {label: 'Imagem', name: 'img', widget: 'image'}

@@ -116,17 +116,70 @@ function Tabs() {
           <ContentBox
             title={ContentTabs.tab1.title}
             content={ContentTabs.tab1.text}
+            imgSrc={"tab1.png"}
           />
         </div>
         <div
           key="{tab}"
         >
           <ContentBox
-            title="Feed"
-            content="Ideal overcome free burying grandeur aversion. Dead morality
-                self right superiority passion virtues hope society play of
-                snare grandeur. Good oneself burying law good ultimate burying.
-                Play justice snare holiest noble sea reason marvelous right."
+            title={ContentTabs.tab2.title}
+            content={ContentTabs.tab2.text}
+            imgSrc={"tab2.jpg"}
+          />
+        </div>
+        <div
+          key="{tab}"
+        >
+          <ContentBox
+            title={ContentTabs.tab3.title}
+            content={ContentTabs.tab3.text}
+            imgSrc={"tab3.png"}
+          />
+        </div>
+        <div
+          key="{tab}"
+        >
+          <ContentBox
+            title={ContentTabs.tab4.title}
+            content={ContentTabs.tab4.text}
+            imgSrc={"tab3.png"}
+          />
+        </div>
+        <div
+          key="{tab}"
+        >
+          <ContentBox
+            title={ContentTabs.tab5.title}
+            content={ContentTabs.tab5.text}
+            imgSrc={"tab3.png"}
+          />
+        </div>
+        <div
+          key="{tab}"
+        >
+          <ContentBox
+            title={ContentTabs.tab6.title}
+            content={ContentTabs.tab6.text}
+            imgSrc={"tab3.png"}
+          />
+        </div>
+        <div
+          key="{tab}"
+        >
+          <ContentBox
+            title={ContentTabs.tab7.title}
+            content={ContentTabs.tab7.text}
+            imgSrc={"tab3.png"}
+          />
+        </div>
+        <div
+          key="{tab}"
+        >
+          <ContentBox
+            title={ContentTabs.tab8.title}
+            content={ContentTabs.tab8.text}
+            imgSrc={"tab3.png"}
           />
         </div>
       </Pager>
