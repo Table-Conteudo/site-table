@@ -6,7 +6,7 @@ import ContentTabs from "../../site/copy/content_tabs.yml"
 const ContentTypes = () => (
   <div className="contentTypes">
     <div className="title">
-      <h1>Fazemos conteúdo</h1>
+      <h1>{ContentTabs.title}</h1>
     </div>
     <Tabs />
   </div>

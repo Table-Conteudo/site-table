@@ -44,7 +44,7 @@ const Slider = styled(motion.div)`
   background: rgba(249, 191, 58, 1);
 `;
 
-const tabs = ["Redes Sociais", "Motion", "Vídeo", "Filtro", "Fotografia", "Site/Banner", "E-mail MKT", "E-books/Infográficos"]
+const tabs = [ContentTabs.tab1.title, "Motion", "Vídeo", "Filtro", "Fotografia", "Site/Banner", "E-mail MKT", "E-books/Infográficos"]
 
 function Tabs() {
   const [value, setValue] = useState(1)
@@ -114,8 +114,8 @@ function Tabs() {
           key="{tab}"
         >
           <ContentBox
-            title="Redes Sociais"
-            content="Redes Sociais"
+            title={ContentTabs.tab1.title}
+            content={ContentTabs.tab1.text}
           />
         </div>
         <div

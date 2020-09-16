@@ -34,4 +34,26 @@ collections:
             widget: "object"
             fields:
               - {label: 'Título', name: 'title', widget: 'string'} 
+              - {label: 'Texto', name: 'text', widget: 'string'}
+              - {label: 'Imagem', name: 'img', widget: 'image'}
+          - label: "Aba 2"
+            name: "tab2"
+            widget: "object"
+            fields:
+              - {label: 'Título', name: 'title', widget: 'string'} 
+              - {label: 'Texto', name: 'text', widget: 'string'}
+              - {label: 'Imagem', name: 'img', widget: 'image'}
+          - label: "Aba 3"
+            name: "tab3"
+            widget: "object"
+            fields:
+              - {label: 'Título', name: 'title', widget: 'string'} 
+              - {label: 'Texto', name: 'text', widget: 'string'}
+              - {label: 'Imagem', name: 'img', widget: 'image'}
+          - label: "Aba 3"
+            name: "tab3"
+            widget: "object"
+            fields:
+              - {label: 'Título', name: 'title', widget: 'string'} 
               - {label: 'Texto', name: 'text', widget: 'string'} 
+              - {label: 'Imagem', name: 'img', widget: 'image'}
