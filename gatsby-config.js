@@ -32,7 +32,7 @@ module.exports = {
       resolve: "gatsby-plugin-react-svg",
       options: {
         rule: {
-          include: [/\.inline\.svg$/, /\.background\.svg$/]
+          include: [/\.inline\.svg$/, /\.background\.svg$/],
         },
       },
     },
@@ -83,7 +83,13 @@ module.exports = {
         ],
       },
     },
-    { resolve: `gatsby-transformer-sharp` },
+    {
+      resolve: `gatsby-transformer-sharp`,
+      options: {
+        // The option defaults to true
+        checkSupportedExtensions: false,
+      },
+    },
     { resolve: `gatsby-plugin-sharp` },
     {
       resolve: `gatsby-plugin-google-analytics`,
@@ -110,7 +116,7 @@ module.exports = {
         icon: `content/assets/gatsby-icon.png`,
       },
     },
-    { resolve: `gatsby-plugin-react-helmet` }
+    { resolve: `gatsby-plugin-react-helmet` },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
