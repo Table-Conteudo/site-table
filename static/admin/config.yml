@@ -6,27 +6,26 @@ media_folder: static/img
 public_folder: /img
 
 collections:
-  - name: 'blog'
-    label: 'Blog'
-    folder: 'content/blog'
+  - name: 'cases'
+    label: 'Cases'
+    folder: 'content/cases'
     create: true
-    slug: 'index'
     media_folder: ''
     public_folder: ''
-    path: '{{title}}/index'
-    editor:
-      preview: false
     fields:
-      - { label: 'Título', name: 'title', widget: 'string' }
+      - { label: 'Slug', name: 'slug', widget: 'string' }
       - { label: 'Data de Publicação', name: 'date', widget: 'datetime' }
+      - { label: 'Título', name: 'title', widget: 'string' }
       - { label: 'Descrição', name: 'description', widget: 'string' }
       - { label: 'Corpo', name: 'body', widget: 'markdown' }
+      - { label: 'Prévia', name: 'thumbnail', widget: 'image' }
+      - { label: 'Imagem Destaque', name: 'feature_img', widget: 'image' }
   - name: 'home'
     label: 'Página Inicial'
     files:
       - label: 'Abas de Conteúdo'
         name: content_tabs
-        file: site/copy/content_tabs.yml
+        file: 'content/copy/content_tabs.yml'
         fields:
           - { label: 'Título', name: 'title', widget: 'string' }
           - label: "Aba 1"

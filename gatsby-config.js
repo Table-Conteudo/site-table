@@ -17,7 +17,7 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        path: `${__dirname}/content/blog`,
+        path: `${__dirname}/content/cases`,
         name: `blog`,
       },
     },
@@ -104,7 +104,7 @@ module.exports = {
         //trackingId: `ADD YOUR TRACKING ID HERE`,
       },
     },
-    { resolve: `gatsby-plugin-feed` },
+    // { resolve: `gatsby-plugin-feed` },
     {
       resolve: `gatsby-plugin-styled-components`,
       options: {

@@ -1,9 +1,8 @@
 import React from "react"
-import contentBoxStyles from "./content-box.module.scss"
 import { StaticQuery, graphql } from "gatsby" // to query for image data
 import Img from "gatsby-image" // to take image data and render it
 
-const Image = props => (
+const ImageQuery = props => (
   <StaticQuery
     query={graphql`
       query {
@@ -36,30 +35,4 @@ const Image = props => (
   />
 )
 
-function ContentBox(props) {
-  return (
-    <div className={contentBoxStyles.boxWrapper}>
-      <div className={contentBoxStyles.box}>
-        <div className={contentBoxStyles.image}>
-          <Image filename={props.imgSrc} alt={props.imgAlt} />
-        </div>
-        <div className={contentBoxStyles.body}>
-          <h2>
-            <span>#</span>
-            {props.title}
-          </h2>
-          <p>{props.content}</p>
-
-          <div className={contentBoxStyles.footer}>
-            <div className={contentBoxStyles.cases}>
-              <h6>Veja nos cases</h6>
-              <div className={contentBoxStyles.line}></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  )
-}
-
-export default ContentBox
+export default ImageQuery
