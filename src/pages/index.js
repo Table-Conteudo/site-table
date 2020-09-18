@@ -1,12 +1,12 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
 
-import Bio from "../components/bio"
 import Layout from "../templates/layout"
-import SEO from "../components/seo"
-import Hero from "../components/hero"
+// import SEO from "../components/seo"
+// import Hero from "../components/hero"
 import Hero2 from "../components/hero2"
 import ContentTypes from "../components/content-types"
+import FeaturedCases from "../components/featured-cases"
 import CasePreview from "../components/case-preview"
 
 const Index = ({
@@ -22,9 +22,10 @@ const Index = ({
 
   return (
     <Layout location={location}>
-      <Hero2 />
+      {/* <Hero2 /> */}
+      <div className="placeholder"></div>
       <ContentTypes />
-      <div>{Cases}</div>
+      <FeaturedCases>{Cases}</FeaturedCases>
     </Layout>
   )
 }
@@ -42,6 +43,13 @@ export const pageQuery = graphql`
             date(formatString: "MMMM DD, YYYY")
             slug
             title
+            thumbnail {
+              childImageSharp {
+                fluid(maxWidth: 600) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
           }
         }
       }

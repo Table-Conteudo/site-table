@@ -11,6 +11,7 @@
   .box {
     background-color: #ffffff;
     width: 100%;
+    max-width: 1200px;
 
     @include make-row($gutter: 1rem);
 

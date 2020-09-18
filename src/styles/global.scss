@@ -53,6 +53,10 @@ body {
   
 }
 
+.placeholder {
+  min-height: 100vh;
+}
+
 .mainContainer {
   background-color: map-get($theme, primary-light);
   min-height: 100vh;
