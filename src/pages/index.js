@@ -10,12 +10,14 @@ import FeaturedClients from "../components/featured-clients"
 import FeaturedCases from "../components/featured-cases"
 import CasePreview from "../components/case-preview"
 import FeaturedEdu from "../components/featured-edu"
+import ContactForm from "../components/contact"
 
 const Index = ({
   data: {
     allMarkdownRemark: { edges },
   },
   location,
+  props
 }) => {
   // const siteTitle = data.site.siteMetadata.title
   const Cases = edges
@@ -30,6 +32,7 @@ const Index = ({
       <FeaturedClients />
       <FeaturedCases>{Cases}</FeaturedCases>
       <FeaturedEdu />
+      <ContactForm location={location} />
     </Layout>
   )
 }
