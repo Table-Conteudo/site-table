@@ -4,10 +4,12 @@ import { Link, graphql } from "gatsby"
 import Layout from "../templates/layout"
 // import SEO from "../components/seo"
 // import Hero from "../components/hero"
-import Hero2 from "../components/hero2"
+// import Hero2 from "../components/hero2"
 import ContentTypes from "../components/content-types"
+import FeaturedClients from "../components/featured-clients"
 import FeaturedCases from "../components/featured-cases"
 import CasePreview from "../components/case-preview"
+import FeaturedEdu from "../components/featured-edu"
 
 const Index = ({
   data: {
@@ -25,7 +27,9 @@ const Index = ({
       {/* <Hero2 /> */}
       <div className="placeholder"></div>
       <ContentTypes />
+      <FeaturedClients />
       <FeaturedCases>{Cases}</FeaturedCases>
+      <FeaturedEdu />
     </Layout>
   )
 }

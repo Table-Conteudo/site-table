@@ -44,18 +44,18 @@ function ContentBox(props) {
           <Image filename={props.imgSrc} alt={props.imgAlt} />
         </div>
         <div className={contentBoxStyles.body}>
-          <h2>
+          <h3>
             <span>#</span>
             {props.title}
-          </h2>
+          </h3>
           <p>{props.content}</p>
 
-          <div className={contentBoxStyles.footer}>
+          {/* <div className={contentBoxStyles.footer}>
             <div className={contentBoxStyles.cases}>
               <h6>Veja nos cases</h6>
               <div className={contentBoxStyles.line}></div>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>

@@ -4,12 +4,12 @@ import Tabs from "./tabs"
 import ContentTabs from "../../content/copy/content_tabs.yml"
 
 const ContentTypes = () => (
-  <div className="contentTypes">
+  <section className="contentTypes">
     <div className="title">
       <h1>{ContentTabs.title}</h1>
     </div>
     <Tabs />
-  </div>
+  </section>
 )
 
 export default ContentTypes

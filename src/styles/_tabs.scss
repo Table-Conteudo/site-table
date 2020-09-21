@@ -9,7 +9,7 @@
 
   .title {
     padding-left: 10%;
-    @include make-col(7, $columns: $grid-columns);
+    @include make-col(12, $columns: $grid-columns);
 
     @include media-breakpoint-down(md) {
       padding-left: 0;
@@ -46,6 +46,7 @@
   width: 100%;
   margin-bottom: 2rem;
   padding-right: 10%;
+  justify-content: flex-end;
 
   @include media-breakpoint-down(md) {
     display: block;
@@ -58,11 +59,17 @@
     // display: flex;
     position: relative;
     overflow: initial;
+    width: 50%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+
+    @include media-breakpoint-down(md) {
+      width: 100%;
+    }
 
     button {
-      @include media-breakpoint-down(md) {
-        margin-bottom: 0.5rem;
-      }
+      margin-bottom: 0.5rem;
 
       &:focus {
         outline: none !important;
@@ -71,6 +78,7 @@
     }
 
     #slider {
+      display: none;
       @include media-breakpoint-down(md) {
         display: none;
       }

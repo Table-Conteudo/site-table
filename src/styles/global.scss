@@ -1,5 +1,5 @@
 @import "utilities";
-@import "custom-typography";
+@import "typography";
 @import "tabs";
 // @import "hero";
 
@@ -12,13 +12,12 @@ html {
 
 body {
   color: map-get($theme, dark);
-  background-color: #EFEFEF;
+  background-color: #efefef;
   overflow-x: hidden;
 }
 
 .heroDesktop {
   @include media-breakpoint-down(md) {
-  
     display: none;
   }
 }
@@ -38,23 +37,61 @@ body {
 #logo {
   max-width: 140px;
 
-  #logoName, #logoSub {
+  #logoName,
+  #logoSub {
     opacity: 0;
     transform: translate(-40px);
     transition: opacity 0.3s, transform 0.8s;
   }
 
   &:hover {
-    #logoName, #logoSub {
+    #logoName,
+    #logoSub {
       opacity: 1;
       transform: translate(0);
     }
   }
-  
 }
 
 .placeholder {
   min-height: 100vh;
+}
+
+a {
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+button {
+  border: none;
+  outline: none;
+  padding: 0.5rem 1rem;
+  font-family: "Lekton", sans-serif;
+  font-weight: 700;
+  margin: 0 0.75rem;
+
+  &.primary {
+    color: map-get($theme, dark);
+    background-color: map-get($theme, primary);
+    box-shadow: 0px 4px 0px map-get($theme, primary-dark);
+    transition: 0.3s;
+
+    &:hover {
+      box-shadow: 0px 0px 0px map-get($theme, primary-dark);
+    }
+  }
+
+  &.dark {
+    color: map-get($theme, light);
+    background-color: map-get($theme, dark);
+    box-shadow: 0px 4px 0px #333333;
+    transition: 0.3s;
+
+    &:hover {
+      box-shadow: 0px 0px 0px #333333;
+    }
+  }
 }
 
 .mainContainer {

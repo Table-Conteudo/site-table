@@ -14,6 +14,7 @@ module.exports = {
   plugins: [
     { resolve: `gatsby-plugin-netlify-cms` },
     { resolve: `gatsby-plugin-sass` },
+    { resolve: `gatsby-plugin-transition-link` },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -49,8 +50,12 @@ module.exports = {
         fonts: {
           google: [
             {
-              family: "Lato",
+              family: "Montserrat",
               variants: ["400,500,700"],
+            },
+            {
+              family: "Lato",
+              variants: ["300,400,500,700"],
             },
             {
               family: "Inter",
@@ -62,10 +67,6 @@ module.exports = {
             },
           ],
         },
-        //formats: ['woff2', 'woff'],
-        //useMinify: true,
-        //usePreload: true,
-        //usePreconnect: false,
       },
     },
     {
@@ -75,7 +76,8 @@ module.exports = {
           {
             resolve: `gatsby-remark-images`,
             options: {
-              maxWidth: 590,
+              maxWidth: 1920,
+              quality: 100,
             },
           },
           {

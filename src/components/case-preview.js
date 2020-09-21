@@ -1,12 +1,13 @@
 import React from "react"
 import { Link } from "gatsby"
-import Img from "gatsby-image" // to take image data and render it
+import AniLink from "gatsby-plugin-transition-link/AniLink";
+import Img from "gatsby-image"
 import caseStyles from "./cases.module.scss"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 
 const CasePreview = ({ post }) => (
   <div className={caseStyles.preview}>
-    <Link to={post.frontmatter.slug}>
+    <AniLink cover bg="#F9BF3A" to={post.frontmatter.slug}>
       <div className={caseStyles.overlay}>
         <Img fluid={post.frontmatter.thumbnail.childImageSharp.fluid} />
         <div className={caseStyles.footer}>
@@ -15,7 +16,7 @@ const CasePreview = ({ post }) => (
           {/* ({post.frontmatter.date}) */}
         </div>
       </div>
-    </Link>
+    </AniLink>
   </div>
 )
 

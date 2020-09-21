@@ -31,7 +31,7 @@ const TabItem = styled(motion.button)`
   text-overflow: ellipsis;
   line-height: 1.5;
   border: 2px solid ${p => (p.isActive ? "rgb(249, 191, 58)" : "rgb(196, 196, 196)")};
-  margin-right: 1rem;
+  margin-left: 1rem;
   overflow: hidden;
 `
 

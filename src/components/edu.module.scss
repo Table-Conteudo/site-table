@@ -1,0 +1,105 @@
+@import "../styles/utilities";
+
+.hero {
+  width: 100%;
+  background-position: center center !important;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+  margin-top: 7rem;
+
+  .triangles {
+    background-image: url(../../content/assets/edu-triangles.svg);
+    width: 100%;
+    height: 100%;
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    background-size: 30%;
+    position: absolute;
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  .rectangles {
+    background-image: url(../../content/assets/edu-rectangles.svg);
+    width: 100%;
+    height: 100%;
+    background-position: right top;
+    background-repeat: no-repeat;
+    background-size: 50%;
+    position: absolute;
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  .row {
+    @include make-row($gutter: 1rem);
+    padding: 6rem 10%;
+    position: relative;
+    z-index: 1;
+
+    .text {
+      @include make-col(5, $columns: $grid-columns);
+
+      h2 {
+        color: #ffffff;
+
+        span {
+          font-weight: 300;
+        }
+      }
+
+      p {
+        color: #ffffff;
+      }
+
+      @include media-breakpoint-down(md) {
+        @include make-col(12);
+      }
+    }
+
+    .links {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      @include make-col(7, $columns: $grid-columns);
+
+      @include media-breakpoint-down(md) {
+        @include make-col(12);
+      }
+
+      .cardLink {
+        background-color: map-get($theme, secondary);
+        border: 2px solid map-get($theme, primary);
+        padding: 1rem 2rem;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        color: white;
+
+        &::after {
+          position: absolute;
+          background-color: map-get($theme, secondary);
+          border: 2px solid map-get($theme, primary);
+          width: 100%;
+          height: 100%;
+          top: 1rem;
+          right: 1rem;
+          content: "";
+          z-index: -1;
+        }
+
+        h6 {
+            font-family: "Lekton", sans-serif;
+        }
+
+        svg {
+            margin-bottom: 1rem;
+            margin-left: auto;
+            color: map-get($theme, primary);
+        }
+      }
+    }
+  }
+}

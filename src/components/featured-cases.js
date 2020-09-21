@@ -1,19 +1,23 @@
 import React from "react"
 import caseStyles from "./cases.module.scss"
-import { motion } from "framer-motion"
+import { Link } from "gatsby"
 
 export default function FeaturedCases({ children }) {
   return (
-    <div className={caseStyles.container}>
+    <section className={caseStyles.container}>
       <div className={caseStyles.rectangle}></div>
       <div className={caseStyles.wrapper}>
         <h1>Nossos cases</h1>
-        <motion.div
-          className={caseStyles.flex}
-        >
-          {children}
-        </motion.div>
+        <div className={caseStyles.flex}>{children}</div>
+        <div className={caseStyles.buttons}>
+          <Link to="/">
+            <button className="primary">Todos os cases</button>
+          </Link>
+          <Link to="/">
+            <button className="dark">Projetos no Behance</button>
+          </Link>
+        </div>
       </div>
-    </div>
+    </section>
   )
 }

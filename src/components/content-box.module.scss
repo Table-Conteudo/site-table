@@ -2,7 +2,7 @@
 
 .boxWrapper {
   width: 100%;
-  padding: 0 16rem;
+  padding: 0 10%;
 
   @include media-breakpoint-down(md) {
     padding: 0;
@@ -12,12 +12,14 @@
     background-color: #ffffff;
     width: 100%;
     max-width: 1200px;
+    margin-right: 0rem !important;
+    margin-left: 0rem !important;
 
     @include make-row($gutter: 1rem);
 
     .image {
       background-color: map-get($theme, medium);
-      @include make-col(6, $columns: $grid-columns);
+      @include make-col(5, $columns: $grid-columns);
 
       @include media-breakpoint-down(md) {
         @include make-col(12);
@@ -25,9 +27,9 @@
     }
 
     .body {
-      padding: 2rem;
+      padding: 5% 10%;
 
-      @include make-col(6, $columns: $grid-columns);
+      @include make-col(7, $columns: $grid-columns);
 
       @include media-breakpoint-down(md) {
         @include make-col(12);
@@ -35,8 +37,8 @@
         padding: 1rem 2rem;
       }
 
-      h2 {
-        font-weight: 300;
+      h3 {
+        font-weight: 700;
 
         span {
           color: map-get($theme, primary);

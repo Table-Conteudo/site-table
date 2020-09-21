@@ -2,11 +2,11 @@
 
 .container {
   position: relative;
-  padding: 10rem 0;
+  padding: 10rem 0 0;
   transition: 0.3s;
 
   .rectangle {
-    background-color: map-get($theme, primary);
+    // background-color: map-get($theme, primary);
     position: absolute;
     width: 600px;
     height: 600px;
@@ -14,6 +14,7 @@
     left: 0;
     right: 0;
     z-index: -1;
+    border: 2px solid map-get($theme, primary);
 
     @include media-breakpoint-down(md) {
       width: 300px;
@@ -21,11 +22,15 @@
   }
 
   .wrapper {
-    padding: 3rem 0;
+    padding: 3rem 10%;
     display: flex;
     flex-direction: column;
     align-items: center;
     transition: 0.3s;
+
+    @include media-breakpoint-down(md) {
+      padding: 3rem 0;
+    }
 
     h1 {
       text-align: center;
@@ -148,6 +153,13 @@
           }
         }
       }
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem 0.5rem;
     }
   }
 }
