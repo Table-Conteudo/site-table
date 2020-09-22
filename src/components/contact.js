@@ -1,14 +1,15 @@
 import React from "react"
 import axios from "axios"
 import * as qs from "query-string"
+import { globalHistory } from '@reach/router'
 
-class ContactFormPage extends React.Component {
+class ContactForm extends React.Component {
   constructor(props) {
     super(props)
     this.domRef = React.createRef()
     this.state = { feedbackMsg: null }
   }
-
+  
   handleSubmit(event) {
     // Do not submit form via HTTP, since we're doing that via XHR request.
     event.preventDefault()
@@ -18,11 +19,12 @@ class ContactFormPage extends React.Component {
     const formData = {}
     Object.keys(this.refs).map(key => (formData[key] = this.refs[key].value))
 
-    // const localUrl = location.pathname
+    const localUrl = globalHistory.location.origin
+
     // Set options for axios. The URL we're submitting to
     // (this.props.location.pathname) is the current page.
     const axiosOptions = {
-      url: "/",
+      url: localUrl,
       method: "post",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       data: qs.stringify(formData),
@@ -56,6 +58,8 @@ class ContactFormPage extends React.Component {
           name="Contato Table"
           method="POST"
           data-netlify="true"
+          data-netlify-honeypot="bot-field"
+          data-netlify-recaptcha="true"
           onSubmit={event => this.handleSubmit(event)}
         >
           <input
@@ -66,6 +70,8 @@ class ContactFormPage extends React.Component {
           />
           <input ref="email" type="email" name="email" />
           <textarea ref="message" name="message" />
+
+          <div data-netlify-recaptcha="true"></div>
           <button type="submit">Send</button>
         </form>
       </div>
@@ -73,4 +79,4 @@ class ContactFormPage extends React.Component {
   }
 }
 
-export default ContactFormPage
+export default ContactForm

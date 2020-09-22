@@ -32,7 +32,7 @@ const Index = ({
       <FeaturedClients />
       <FeaturedCases>{Cases}</FeaturedCases>
       <FeaturedEdu />
-      <ContactForm location={location} />
+      <ContactForm />
     </Layout>
   )
 }
