@@ -1,0 +1,71 @@
+@import "../styles/utilities";
+
+.wrapper {
+  width: 100%;
+  padding: 0 20%;
+  margin-top: 7rem;
+
+  @include media-breakpoint-down(md) {
+    padding: 0;
+  }
+
+  .box {
+    background-color: #ffffff;
+    width: 100%;
+    max-width: 1200px;
+    padding: 2rem 4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    h3 {
+      text-align: center;
+    }
+
+    .feedback {
+      display: flex;
+      align-items: center;
+
+      button {
+        background-color: transparent;
+        padding: 0.25rem;
+        color: map-get($theme, primary);
+      }
+
+      p {
+        margin-bottom: 0;
+      }
+    }
+
+    .hide {
+      display: none;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+
+      > *:not(:nth-child(1)) {
+        margin: 0.75rem 0;
+      }
+
+      input,
+      select,
+      textarea {
+        min-height: 2rem;
+        border: none;
+        border-bottom: 2px solid map-get($theme, primary);
+        background-color: map-get($theme, light);
+        padding: 0.5rem 0.5rem;
+      }
+
+      .footer {
+        display: flex;
+        justify-content: center;
+      }
+    }
+
+    @include make-row($gutter: 1rem);
+  }
+}

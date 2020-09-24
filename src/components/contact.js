@@ -1,15 +1,22 @@
 import React from "react"
 import axios from "axios"
 import * as qs from "query-string"
-import { globalHistory } from '@reach/router'
+import { globalHistory } from "@reach/router"
+import contactStyles from "./contact.module.scss"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 
 class ContactForm extends React.Component {
   constructor(props) {
     super(props)
     this.domRef = React.createRef()
     this.state = { feedbackMsg: null }
+    this.state = { close: false }
   }
-  
+
+  closeFeedback = () => {
+    this.setState({ close: !this.state.close })
+  }
+
   handleSubmit(event) {
     // Do not submit form via HTTP, since we're doing that via XHR request.
     event.preventDefault()
@@ -36,44 +43,79 @@ class ContactForm extends React.Component {
     axios(axiosOptions)
       .then(response => {
         this.setState({
-          feedbackMsg: "Form submitted successfully!",
+          feedbackMsg:
+            "Sua mensagem foi enviada! Vamos te responder assim que possível.",
         })
         this.domRef.current.reset()
       })
       .catch(err =>
         this.setState({
-          feedbackMsg: "Form could not be submitted.",
+          feedbackMsg:
+            "Sua mensagem não pôde ser enviada. Que tal entrar em contato com a gente por telefone ou e-mail?",
         })
       )
   }
   render() {
     return (
-      <div>
-        <h1>Contact</h1>
+      <div className={contactStyles.wrapper}>
+        <div className={contactStyles.box}>
+          <h3>Fale com a gente!</h3>
 
-        {this.state.feedbackMsg && <p>{this.state.feedbackMsg}</p>}
+          {this.state.feedbackMsg && (
+            <div
+              className={
+                this.state.close ? contactStyles.hide : contactStyles.feedback
+              }
+            >
+              <button onClick={this.closeFeedback}>
+                <FontAwesomeIcon icon="times" className="fa-lg" />
+              </button>
+              <p>{this.state.feedbackMsg}</p>
+            </div>
+          )}
 
-        <form
-          ref={this.domRef}
-          name="Contato Table"
-          method="POST"
-          data-netlify="true"
-          data-netlify-honeypot="bot-field"
-          data-netlify-recaptcha="true"
-          onSubmit={event => this.handleSubmit(event)}
-        >
-          <input
-            ref="form-name"
-            type="hidden"
-            name="form-name"
-            value="Contato Table"
-          />
-          <input ref="email" type="email" name="email" />
-          <textarea ref="message" name="message" />
+          <form
+            ref={this.domRef}
+            name="Contato Table"
+            method="POST"
+            data-netlify="true"
+            data-netlify-honeypot="bot-field"
+            data-netlify-recaptcha="true"
+            onSubmit={event => this.handleSubmit(event)}
+          >
+            <div data-netlify-recaptcha="true"></div>
+            <input
+              ref="form-name"
+              type="hidden"
+              name="form-name"
+              value="Contato Table"
+            />
+            <input ref="name" type="text" name="name" placeholder="Nome" />
+            <input ref="email" type="email" name="email" placeholder="E-mail" />
+            <input
+              ref="phone"
+              type="tel"
+              name="phone"
+              placeholder="Telefone"
+              maxLength="11"
+            />
+            <select ref="subject" name="subject">
+              <option value="" disabled defaultValue hidden>
+                Assunto
+              </option>
+              <option value="Proposta">Proposta</option>
+              <option value="Orçamento">Orçamento</option>
+              <option value="Currículo">Currículo</option>
+            </select>
+            <textarea ref="message" name="message" placeholder="Mensagem" />
 
-          <div data-netlify-recaptcha="true"></div>
-          <button type="submit">Send</button>
-        </form>
+            <div className={contactStyles.footer}>
+              <button type="submit" className="primary">
+                Enviar
+              </button>
+            </div>
+          </form>
+        </div>
       </div>
     )
   }
