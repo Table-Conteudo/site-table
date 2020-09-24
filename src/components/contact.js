@@ -83,7 +83,6 @@ class ContactForm extends React.Component {
             data-netlify-recaptcha="true"
             onSubmit={event => this.handleSubmit(event)}
           >
-            <div data-netlify-recaptcha="true"></div>
             <input
               ref="form-name"
               type="hidden"
@@ -99,8 +98,8 @@ class ContactForm extends React.Component {
               placeholder="Telefone"
               maxLength="11"
             />
-            <select ref="subject" name="subject">
-              <option value="" disabled defaultValue hidden>
+            <select ref="subject" name="subject" defaultValue={"Assunto"}>
+              <option value="Assunto" disabled hidden>
                 Assunto
               </option>
               <option value="Proposta">Proposta</option>
