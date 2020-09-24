@@ -80,7 +80,6 @@ class ContactForm extends React.Component {
             method="POST"
             data-netlify="true"
             data-netlify-honeypot="bot-field"
-            data-netlify-recaptcha="true"
             onSubmit={event => this.handleSubmit(event)}
           >
             <input
