@@ -1,0 +1,29 @@
+@import "../styles/utilities";
+
+footer {
+  background-color: map-get($theme, primary);
+  width: 100%;
+  padding: 6rem 20%;
+
+  .content {
+    @include make-row($gutter: 1rem);
+
+    .logo {
+        @include make-col(4, $columns: $grid-columns);
+
+        svg {
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+        }
+    }
+
+    .links {
+        @include make-col(4, $columns: $grid-columns);
+    }
+
+    .social {
+        @include make-col(4, $columns: $grid-columns);
+    }
+  }
+}

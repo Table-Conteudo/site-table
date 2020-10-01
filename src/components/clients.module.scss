@@ -93,8 +93,18 @@
           transition: 0.6s;
 
           &:hover {
-            filter: grayscale(0%);
             opacity: 1;
+            animation: filter-animation 0.6s 1 ease forwards;
+
+            @keyframes filter-animation {
+              0% {
+                filter: grayscale(100%);
+              }
+
+              100% {
+                filter: grayscale(0%);
+              }
+            }
           }
         }
       }

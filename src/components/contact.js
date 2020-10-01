@@ -114,6 +114,7 @@ class ContactForm extends React.Component {
             </div>
           </form>
         </div>
+        <div className={contactStyles.bottom}></div>
       </div>
     )
   }

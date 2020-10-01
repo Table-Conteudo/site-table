@@ -2,8 +2,9 @@
 
 .wrapper {
   width: 100%;
-  padding: 0 20%;
+  padding: 0 25%;
   margin-top: 7rem;
+  // position: relative;
 
   @include media-breakpoint-down(md) {
     padding: 0;
@@ -46,7 +47,7 @@
       flex-direction: column;
       align-items: stretch;
 
-      > *:not(:nth-child(1)) {
+      > * {
         margin: 0.75rem 0;
       }
 
@@ -65,7 +66,21 @@
         justify-content: center;
       }
     }
+  }
 
-    @include make-row($gutter: 1rem);
+  .bottom {
+    background-color: map-get($theme, primary);
+    position: absolute;
+    width: 100%;
+    height: 24rem;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: -1;
+    border: 2px solid map-get($theme, primary);
+
+    // @include media-breakpoint-down(md) {
+    //   width: 300px;
+    // }
   }
 }
