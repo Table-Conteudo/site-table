@@ -39,7 +39,12 @@ const Image = props => (
 
 function FeaturedClients(props) {
   return (
-    <section className={clientStyles.wrapper}>
+    <section
+      className={clientStyles.wrapper}
+      data-sal="slide-up"
+      data-sal-delay="30"
+      data-sal-easing="ease"
+    >
       <div className={clientStyles.box}>
         <div className={clientStyles.title}>
           <h3>Já atendemos</h3>

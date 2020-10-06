@@ -12,7 +12,7 @@ footer {
         @include make-col(4, $columns: $grid-columns);
 
         svg {
-            width: 100%;
+            width: auto;
             max-width: 100%;
             height: auto;
         }

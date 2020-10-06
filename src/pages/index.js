@@ -17,7 +17,7 @@ const Index = ({
     allMarkdownRemark: { edges },
   },
   location,
-  props
+  props,
 }) => {
   // const siteTitle = data.site.siteMetadata.title
   const Cases = edges

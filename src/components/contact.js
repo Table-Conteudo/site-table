@@ -57,7 +57,12 @@ class ContactForm extends React.Component {
   }
   render() {
     return (
-      <div className={contactStyles.wrapper}>
+      <div
+        className={contactStyles.wrapper}
+        data-sal="slide-up"
+        data-sal-delay="0"
+        data-sal-easing="ease"
+      >
         <div className={contactStyles.box}>
           <h3>Fale com a gente!</h3>
 

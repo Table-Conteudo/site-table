@@ -77,6 +77,7 @@
         flex-direction: column;
         align-items: flex-start;
         color: white;
+        transition: 0.3s;
 
         &::after {
           position: absolute;
@@ -88,16 +89,24 @@
           right: 1rem;
           content: "";
           z-index: -1;
+          transition: 0.3s;
+        }
+
+        &:hover {
+          &::after {
+            top: 0.5rem;
+            right: 0.5rem;
+          }
         }
 
         h6 {
-            font-family: "Lekton", sans-serif;
+          font-family: "Lekton", sans-serif;
         }
 
         svg {
-            margin-bottom: 1rem;
-            margin-left: auto;
-            color: map-get($theme, primary);
+          margin-bottom: 1rem;
+          margin-left: auto;
+          color: map-get($theme, primary);
         }
       }
     }

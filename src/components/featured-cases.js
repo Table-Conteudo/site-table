@@ -4,7 +4,12 @@ import { Link } from "gatsby"
 
 export default function FeaturedCases({ children }) {
   return (
-    <section className={caseStyles.container}>
+    <section
+      className={caseStyles.container}
+      data-sal="slide-up"
+      data-sal-delay="0"
+      data-sal-easing="ease"
+    >
       <div className={caseStyles.rectangle}></div>
       <div className={caseStyles.wrapper}>
         <h1>Nossos cases</h1>

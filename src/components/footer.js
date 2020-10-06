@@ -4,7 +4,7 @@ import Logo from "../../content/assets/logoFooter.inline.svg"
 
 function Footer() {
   return (
-    <footer>
+    <footer data-sal="slide-up" data-sal-delay="0" data-sal-easing="ease">
       <div className={footerStyles.content}>
         <div className={footerStyles.logo}>
           <Logo alt="Logo da Table" />
