@@ -5,6 +5,10 @@
   padding: 10rem 0 0;
   transition: 0.3s;
 
+  @include media-breakpoint-down(md) {
+    padding: 6rem 0 0;
+  }
+
   .rectangle {
     background-color: map-get($theme, primary);
     position: absolute;
@@ -160,6 +164,15 @@
       justify-content: center;
       align-items: center;
       padding: 2rem 0.5rem;
+
+      @include media-breakpoint-down(md) {
+        display: block;
+
+        button {
+          width: 100%;
+          margin: 1rem !important;
+        }
+      }
     }
   }
 }

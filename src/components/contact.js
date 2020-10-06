@@ -57,7 +57,7 @@ class ContactForm extends React.Component {
   }
   render() {
     return (
-      <div
+      <section
         className={contactStyles.wrapper}
         data-sal="slide-up"
         data-sal-delay="0"
@@ -120,7 +120,7 @@ class ContactForm extends React.Component {
           </form>
         </div>
         <div className={contactStyles.bottom}></div>
-      </div>
+      </section>
     )
   }
 }

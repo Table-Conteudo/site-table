@@ -5,25 +5,103 @@ footer {
   width: 100%;
   padding: 6rem 20%;
 
+  @include media-breakpoint-down(sm) {
+    padding: 3rem 15%;
+  }
+
   .content {
     @include make-row($gutter: 1rem);
 
     .logo {
-        @include make-col(4, $columns: $grid-columns);
+      @include make-col(4, $columns: $grid-columns);
 
-        svg {
-            width: auto;
-            max-width: 100%;
-            height: auto;
-        }
+      @include media-breakpoint-down(sm) {
+        margin-bottom: 3rem;
+
+        @include make-col(12, $columns: $grid-columns);
+      }
+
+      svg {
+        width: auto;
+        max-width: 100%;
+        height: auto;
+      }
     }
 
     .links {
-        @include make-col(4, $columns: $grid-columns);
+      @include make-col(4, $columns: $grid-columns);
+
+      @include media-breakpoint-down(sm) {
+        margin-bottom: 1.5rem;
+        
+        @include make-col(12, $columns: $grid-columns);
+      }
+
+
+      ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+
+        li {
+          font-family: "Inter", sans-serif;
+          font-size: 1rem;
+          font-weight: 700;
+          color: map-get($theme, primary);
+          letter-spacing: 1px;
+          text-transform: uppercase;
+          margin: 0 0 1rem;
+
+          a {
+            text-decoration: none;
+            position: relative;
+            padding-bottom: 4px;
+            color: map-get($theme, dark);
+          }
+
+          a:after,
+          a:visited:after {
+            content: "";
+            height: 2px;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0%;
+            background: map-get($theme, primary);
+            transition: 0.2s;
+          }
+          
+          a:hover:after,
+          a:visited:hover:after {
+            width: 100%;
+          }
+
+          a.block,
+          a:visited.block {
+            display: block;
+            padding: 0.5em;
+          }
+        }
+      }
     }
 
     .social {
-        @include make-col(4, $columns: $grid-columns);
+      display: flex;
+      justify-content: flex-end;
+      
+      svg {
+        font-size: 2rem !important;
+        margin-left: 1.5rem;
+      }
+
+      @include make-col(4, $columns: $grid-columns);
+
+      @include media-breakpoint-down(sm) {
+        justify-content: flex-start;
+
+        @include make-col(12, $columns: $grid-columns);
+      }
+
     }
   }
 }
