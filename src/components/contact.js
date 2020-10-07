@@ -9,6 +9,12 @@ class ContactForm extends React.Component {
   constructor(props) {
     super(props)
     this.domRef = React.createRef()
+    this.formName = "form-name"
+    this.inputName = "name"
+    this.inputEmail = "email"
+    this.inputPhone = "phone"
+    this.inputSubject = "subject"
+    this.inputMessage = "message"
     this.state = { feedbackMsg: null }
     this.state = { close: false }
   }
@@ -88,21 +94,21 @@ class ContactForm extends React.Component {
             onSubmit={event => this.handleSubmit(event)}
           >
             <input
-              ref="form-name"
+              ref={this.formName}
               type="hidden"
               name="form-name"
               value="Contato Table"
             />
-            <input ref="name" type="text" name="name" placeholder="Nome" />
-            <input ref="email" type="email" name="email" placeholder="E-mail" />
+            <input ref={this.inputName} type="text" name="name" placeholder="Nome" />
+            <input ref={this.inputEmail} type="email" name="email" placeholder="E-mail" />
             <input
-              ref="phone"
+              ref={this.inputPhone}
               type="tel"
               name="phone"
               placeholder="Telefone"
               maxLength="11"
             />
-            <select ref="subject" name="subject" defaultValue={"Assunto"}>
+            <select ref={this.inputSubject} name="subject" defaultValue={"Assunto"}>
               <option value="Assunto" disabled hidden>
                 Assunto
               </option>
@@ -110,7 +116,7 @@ class ContactForm extends React.Component {
               <option value="Orçamento">Orçamento</option>
               <option value="Currículo">Currículo</option>
             </select>
-            <textarea ref="message" name="message" placeholder="Mensagem" />
+            <textarea ref={this.inputMessage} name="message" placeholder="Mensagem" />
 
             <div className={contactStyles.footer}>
               <button type="submit" className="primary">
